@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 
-export const MainContainer = styled.div`
+export const MainBox = styled.div`
   display: flex;
-  height: 95vh;
-  width: 99vw;
-  justify-content: center;
-  align-items: center;
-  background-color: #FBFBFF;
-  font-family: Arial, Helvetica, sans-serif;
+  flex-direction: column;
+  height: 60vh;
+  width: 60vw;
+  border: 2px solid #757575;
+  border-radius: 10px;
+
   @media screen and (min-width: 768px) and (max-width: 1023px) {
     width: 98%;
   }
