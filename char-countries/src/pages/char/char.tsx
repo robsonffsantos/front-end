@@ -4,6 +4,7 @@ import { Profile } from "../../types/types"
 import { MainBox } from "../components/mainBox"
 import { MainContainer } from "../components/MainCOntainer"
 import { useNavigate } from "react-router-dom"
+import { CharBox, MainBoxProfile, ProfilePhoto, TitleInfo } from "./styled"
 
 const Char = () => {
     const { getProfile, profile } = useUser()
@@ -13,18 +14,27 @@ const Char = () => {
         getProfile()
     }, [])
 
+    console.log(profile)
+
     return (
         <MainContainer>
-            <MainBox>
-                {profile.map((user: Profile) => {
-                    return <div>
-                        <img src={user.photo} />
-                        <div>{user.firstName}</div>
-                        <div>{user.lastName}</div>
-                        <div>{user.email}</div>
-                    </div>                    
-                })}
+            <MainBox style={{ alignItems: "center", backgroundColor: '#20BF55' }}>
+                <CharBox>
+                    {profile.map((user: Profile) => {
+                        return <MainBoxProfile>
+                            <ProfilePhoto src={user.photo} />
+                            <TitleInfo>{user.firstName} {user.lastName}</TitleInfo>
+                            <TitleInfo>{user.email}</TitleInfo>
+                        </MainBoxProfile>                    
+                    })}
+                </CharBox>
+                <div>
+                    <button>1</button>
+                    <button>2</button>
+                    <button>3</button>
+                </div>
             </MainBox>
+            
         </MainContainer>
     )
 }
