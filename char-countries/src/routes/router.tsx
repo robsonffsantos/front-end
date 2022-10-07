@@ -1,6 +1,6 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import Home from "../pages/home/home"
-import Countries from "../pages/countries/countries"
+import CountriesOrdered from "../pages/countries/countries"
 import Char from '../pages/char/char'
 
 const Router = () => {
@@ -9,7 +9,7 @@ const Router = () => {
       <Routes>
     
         <Route path='/' element={<Home/>}/>
-        <Route path='/countries' element={<Countries/>}/>
+        <Route path='/countries' element={<CountriesOrdered/>}/>
         <Route path='/characters/:id' element={<Char/>}/>
 
       </Routes>

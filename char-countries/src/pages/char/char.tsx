@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { useUser } from "../../context/GlobalStateContext"
 import { Profile } from "../../types/types"
 import { MainBox } from "../components/mainBox"
-import { MainContainer } from "../components/MainCOntainer"
+import { MainContainer } from "../components/mainContainer"
 import { useNavigate } from "react-router-dom"
 import { Button, ButtonBox, CharBox, MainBoxProfile, ProfilePhoto, TitleInfo } from "./styled"
 import { MainButton } from "../components/mainButton"
@@ -15,11 +15,9 @@ const Char = () => {
         getProfile()
     }, [page])
 
-    console.log(profile)
-
     return (
         <MainContainer>
-            <MainBox style={{ alignItems: "center", backgroundColor: '#20BF55' }}>
+            <MainBox style={{ alignItems: "center", backgroundColor: '#8B8BAE' }}>
                 <CharBox>
                     {profile.map((user: Profile) => {
                         return <MainBoxProfile>

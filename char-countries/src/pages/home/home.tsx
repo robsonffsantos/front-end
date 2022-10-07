@@ -1,7 +1,7 @@
 
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import { MainContainer } from "../components/MainCOntainer"
+import { MainContainer } from "../components/mainContainer"
 import { MainBox } from "../components/mainBox"
 import { Characters, Countries, Line, MainText } from "./styled"
 
