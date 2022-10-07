@@ -10,7 +10,8 @@ export type Profile = {
 
 export type UserContextType = {
   profile: Profile[],
-  getProfile: () => void
+  getProfile: () => void,
+  page: number
 }
 
 export type UserContextProps = {

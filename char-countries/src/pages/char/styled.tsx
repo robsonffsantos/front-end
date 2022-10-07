@@ -36,3 +36,22 @@ export const TitleInfo = styled.h5`
     font-size: 1vmax;
     color: #FBFBFF;
 `
+
+export const ButtonBox = styled.div`
+    width: 30%;
+    height: 4vh;
+    display: flex;
+    justify-content: space-evenly;
+`
+
+export const Button = styled.div`
+    border: 2px solid #757575;
+    border-radius: 4px;
+    width: 2vmax;
+    height: 2vmax;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #01BAEF;
+    color: #FBFBFF;
+`

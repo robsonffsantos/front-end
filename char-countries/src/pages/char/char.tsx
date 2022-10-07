@@ -4,15 +4,15 @@ import { Profile } from "../../types/types"
 import { MainBox } from "../components/mainBox"
 import { MainContainer } from "../components/MainCOntainer"
 import { useNavigate } from "react-router-dom"
-import { CharBox, MainBoxProfile, ProfilePhoto, TitleInfo } from "./styled"
+import { Button, ButtonBox, CharBox, MainBoxProfile, ProfilePhoto, TitleInfo } from "./styled"
 
 const Char = () => {
-    const { getProfile, profile } = useUser()
+    const { getProfile, profile, page } = useUser()
     const history = useNavigate()
 
     useEffect(() => {
         getProfile()
-    }, [])
+    }, [page])
 
     console.log(profile)
 
@@ -28,11 +28,11 @@ const Char = () => {
                         </MainBoxProfile>                    
                     })}
                 </CharBox>
-                <div>
-                    <button>1</button>
-                    <button>2</button>
-                    <button>3</button>
-                </div>
+                <ButtonBox>
+                    <Button>1</Button>
+                    <Button>2</Button>
+                    <Button>3</Button>
+                </ButtonBox>
             </MainBox>
             
         </MainContainer>
