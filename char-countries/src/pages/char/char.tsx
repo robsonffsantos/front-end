@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom"
 import { Button, ButtonBox, CharBox, MainBoxProfile, ProfilePhoto, TitleInfo } from "./styled"
 
 const Char = () => {
-    const { getProfile, profile, page } = useUser()
+    const { getProfile, profile, page, setPage } = useUser()
     const history = useNavigate()
 
     useEffect(() => {
@@ -29,9 +29,9 @@ const Char = () => {
                     })}
                 </CharBox>
                 <ButtonBox>
-                    <Button>1</Button>
-                    <Button>2</Button>
-                    <Button>3</Button>
+                    <Button onClick={() => setPage(1)}>1</Button>
+                    <Button onClick={() => setPage(2)}>2</Button>
+                    <Button onClick={() => setPage(3)}>3</Button>
                 </ButtonBox>
             </MainBox>
             

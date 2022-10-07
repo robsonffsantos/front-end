@@ -11,7 +11,8 @@ export type Profile = {
 export type UserContextType = {
   profile: Profile[],
   getProfile: () => void,
-  page: number
+  page: number,
+  setPage: (value: number) => void
 }
 
 export type UserContextProps = {

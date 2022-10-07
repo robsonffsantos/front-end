@@ -54,4 +54,5 @@ export const Button = styled.div`
     align-items: center;
     background-color: #01BAEF;
     color: #FBFBFF;
+    cursor: pointer;
 `
