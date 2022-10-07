@@ -5,6 +5,7 @@ import { MainBox } from "../components/mainBox"
 import { MainContainer } from "../components/MainCOntainer"
 import { useNavigate } from "react-router-dom"
 import { Button, ButtonBox, CharBox, MainBoxProfile, ProfilePhoto, TitleInfo } from "./styled"
+import { MainButton } from "../components/mainButton"
 
 const Char = () => {
     const { getProfile, profile, page, setPage } = useUser()
@@ -33,8 +34,8 @@ const Char = () => {
                     <Button onClick={() => setPage(2)}>2</Button>
                     <Button onClick={() => setPage(3)}>3</Button>
                 </ButtonBox>
-            </MainBox>
-            
+                <MainButton onClick={() => history('/')}>HOME</MainButton>  
+            </MainBox>          
         </MainContainer>
     )
 }
