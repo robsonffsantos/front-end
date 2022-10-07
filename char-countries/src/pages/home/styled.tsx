@@ -10,7 +10,7 @@ export const Line = styled.hr`
 `
 
 export const Characters = styled.div`
-    background-color: #20BF55;
+    background-color: #8B8BAE;
     width: 100%;
     height: 30vh;
     border-radius: 10px 10px 0 0;
@@ -21,7 +21,7 @@ export const Characters = styled.div`
 `
 
 export const Countries = styled.div`
-    background-color: #01BAEF;
+    background-color: #374B4A;
     width: 100%;
     height: 30vh;
     border-radius: 0 0 10px 10px;

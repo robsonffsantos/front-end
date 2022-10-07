@@ -15,11 +15,9 @@ const Char = () => {
         getProfile()
     }, [page])
 
-    console.log(profile)
-
     return (
         <MainContainer>
-            <MainBox style={{ alignItems: "center", backgroundColor: '#20BF55' }}>
+            <MainBox style={{ alignItems: "center", backgroundColor: '#8B8BAE' }}>
                 <CharBox>
                     {profile.map((user: Profile) => {
                         return <MainBoxProfile>

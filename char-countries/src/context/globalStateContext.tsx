@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from "react"
+import { createContext, useState, useContext, useMemo } from "react"
 import { UserContextProps, UserContextType, Profile } from '../types/types'
 import { BASE_URL } from "../constants/url"
 import axios from "axios"
@@ -8,21 +8,31 @@ export const GlobalStateContext = createContext({} as UserContextType)
 export const UserProvider = ({ children }: UserContextProps) => {
   let [profile, setProfile] = useState<Profile[]>([])
   const [page, setPage] = useState<number>(1)
-  const countries = {
-    'ARG': ['BOL', 'BRA', 'CHL', 'PRY', 'URY'],
-    'BRA': ['ARG', 'BOL', 'COL', 'GUF', 'GUY', 'PRY', 'PER', 'SUR', 'URY', 'VEN'],
-    'BOL': ['ARG', 'BRA', 'CHL', 'PRY', 'PER'],
-    'CHL': ['ARG', 'BOL', 'PER'],
-    'COL': ['BRA', 'ECU', 'PAN', 'PER', 'VEN'],
-    'ECU': ['COL', 'PER'],
-    'GUF': ['BRA', 'SUR', 'VEN'],
-    'PAN': ['COL'],
-    'PRY': ['ARG', 'BOL', 'BRA'],
-    'PER': ['BOL', 'BRA', 'CHL', 'COL', 'ECU'],
-    'SUR': ['BRA', 'GUF', 'GUY'],
-    'VEN': ['COL', 'BRA', 'GUF'],
-    'URU': ['ARG', 'BRA'] 
-  }
+
+  const countries = useMemo(() => ({
+    'ARGENTINA': ['BOLIVIA', 'BRASIL', 'CHILE', 'PARAGUAI', 'URUGUAI'],
+    'BRASIL': ['ARGENTINA', 'BOLIVIA', 'COLOMBIA', 'GUIANA FRANCESA', 'GUIANA FRANCESA', 'PARAGUAI', 'PERU', 'SURINAME', 'URUGUAI', 'VENEZUELA'],
+    'BOLIVIA': ['ARGENTINA', 'BRASIL', 'CHILE', 'PARAGUAI', 'PERU'],
+    'CHILE': ['ARGENTINA', 'BOLIVIA', 'PERU'],
+    'COLOMBIA': ['BRASIL', 'EQUADOR', 'PANAMA', 'PERU', 'VENEZUELA'],
+    'EQUADOR': ['COLOMBIA', 'PERU'],
+    'GUIANAFRANCESA': ['BRASIL', 'SURINAME', 'VENEZUELA'],
+    'PANAMA': ['COLOMBIA'],
+    'PARAGUAI': ['ARGENTINA', 'BOLIVIA', 'BRASIL'],
+    'PERU': ['BOLIVIA', 'BRASIL', 'CHILE', 'COLOMBIA', 'EQUADOR'],
+    'SURINAME': ['BRASIL', 'GUIANA FRANCESA', 'GUY'],
+    'VENEZUELA': ['COLOMBIA', 'BRASIL', 'GUIANA FRANCESA'],
+    'URUGUAI': ['ARGENTINA', 'BRASIL'] 
+  }), [])
+
+  const orderCountriesFunction = () => {
+    const keyObject = Object.keys(countries);
+
+    const orderCountries = keyObject.sort(
+        (a, b) => countries[b as keyof typeof countries].length - countries[a as keyof typeof countries].length
+    )
+    return orderCountries
+}
 
   const getProfile = async() => {
       await axios.get(`${BASE_URL}/${page}`)
@@ -34,7 +44,7 @@ export const UserProvider = ({ children }: UserContextProps) => {
       })
     }
 
-  const variables = { profile, setProfile, getProfile, setPage, page }
+  const variables = { profile, setProfile, getProfile, setPage, page, countries, orderCountriesFunction }
 
   return (
     <GlobalStateContext.Provider value={variables}>
