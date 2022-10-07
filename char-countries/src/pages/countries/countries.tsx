@@ -16,12 +16,10 @@ const CountriesOrdered = () => {
         <MainContainer>
             <MainBox style={{ backgroundColor: '#374B4A', padding: '1vmax', alignItems: "center" }}>
                 <CountryBox>
-                        {orderCountry.map((country, index) => {
-                            return <OneCountry key={country}> <TitleInfo>{index + 1}</TitleInfo> <TitleInfo>{country}</TitleInfo> </OneCountry>
-                        })}
+                    {orderCountry.map((country, index) => {
+                        return <OneCountry key={country}> <TitleInfo>{index + 1}</TitleInfo> <TitleInfo>{country}</TitleInfo> </OneCountry>
+                    })}
                 </CountryBox>
-                <ButtonBox>
-                </ButtonBox>
                 <MainButton onClick={() => history('/')}>HOME</MainButton>
             </MainBox>
         </MainContainer>
