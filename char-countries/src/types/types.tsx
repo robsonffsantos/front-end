@@ -30,7 +30,7 @@ export type UserContextType = {
   page: number,
   setPage: (value: number) => void,
   countries: Countries,
-  orderCountriesFunction: () => string[]
+  orderCountry: string[]
 }
 
 export type UserContextProps = {

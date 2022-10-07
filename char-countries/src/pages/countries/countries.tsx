@@ -3,24 +3,26 @@ import { useUser } from "../../context/GlobalStateContext"
 import { useNavigate } from "react-router-dom"
 import { MainContainer } from "../components/mainContainer"
 import { MainBox } from "../components/mainBox"
-import { CountryBox, OneCountry } from "./styled"
+import { CountryBox, OneCountry, TitleInfo, ButtonBox, Button } from "./styled"
+import { MainButton } from "../components/mainButton"
 
 const CountriesOrdered = () => {
-    const { countries, orderCountriesFunction } = useUser()
+    const { orderCountry, countries } = useUser()
     const history = useNavigate()
 
-    const randomOrder = Object.keys(countries)
 
-    countries
 
     return (
         <MainContainer>
-            <MainBox style={{ backgroundColor: '#374B4A', padding: '1vmax', flexDirection: 'row' }}>
+            <MainBox style={{ backgroundColor: '#374B4A', padding: '1vmax', alignItems: "center" }}>
                 <CountryBox>
-                        {randomOrder.map((country, index) => {
-                            return <OneCountry key={country}> <div>{index + 1}</div> <div>{country}</div> </OneCountry>
+                        {orderCountry.map((country, index) => {
+                            return <OneCountry key={country}> <TitleInfo>{index + 1}</TitleInfo> <TitleInfo>{country}</TitleInfo> </OneCountry>
                         })}
                 </CountryBox>
+                <ButtonBox>
+                </ButtonBox>
+                <MainButton onClick={() => history('/')}>HOME</MainButton>
             </MainBox>
         </MainContainer>
     )

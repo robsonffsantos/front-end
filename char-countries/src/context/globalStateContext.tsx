@@ -1,4 +1,4 @@
-import { createContext, useState, useContext, useMemo } from "react"
+import { createContext, useState, useContext, useMemo, useEffect } from "react"
 import { UserContextProps, UserContextType, Profile } from '../types/types'
 import { BASE_URL } from "../constants/url"
 import axios from "axios"
@@ -25,13 +25,16 @@ export const UserProvider = ({ children }: UserContextProps) => {
     'URUGUAI': ['ARGENTINA', 'BRASIL'] 
   }), [])
 
+  const [orderCountry, setOrderCountry] = useState<string[]>([])
+
   const orderCountriesFunction = () => {
     const keyObject = Object.keys(countries);
 
     const orderCountries = keyObject.sort(
         (a, b) => countries[b as keyof typeof countries].length - countries[a as keyof typeof countries].length
     )
-    return orderCountries
+
+    setOrderCountry(orderCountries)
 }
 
   const getProfile = async() => {
@@ -44,7 +47,11 @@ export const UserProvider = ({ children }: UserContextProps) => {
       })
     }
 
-  const variables = { profile, setProfile, getProfile, setPage, page, countries, orderCountriesFunction }
+    useEffect(() => {
+      orderCountriesFunction()
+    }, [])
+
+  const variables = { profile, setProfile, getProfile, setPage, page, countries, orderCountry }
 
   return (
     <GlobalStateContext.Provider value={variables}>
