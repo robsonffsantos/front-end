@@ -1,0 +1,1 @@
+export const BASE_URL = "http://44.206.0.70/characters"
