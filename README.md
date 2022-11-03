@@ -5,6 +5,7 @@
 
 ### Sobre o site
 O projeto foi feito com o objetivo de integrar uma api feita com NestJs ao React com typescript. O website foi feito exclusivamente na versão web.
+ATENÇÃO: os interessados devem rodar também o back-end da aplicação para visualizar resultados. O back-end da aplicação está [neste repositório](https://github.com/robsonffsantos/nest-car-shop).
 
 * Home
 ![image](https://user-images.githubusercontent.com/86332847/199666287-c8512a9a-6cad-45fd-9236-5c7db74e0686.png)
